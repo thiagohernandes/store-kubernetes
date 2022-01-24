@@ -1,0 +1,27 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: store-gateway-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /$1$2$3
+spec:
+  rules:
+    - host: store.com
+      http:
+        paths:
+          - pathType: Prefix
+            path: /products(.*)(.*)(.*)
+            backend:
+              service:
+                name: store-products
+                port:
+                  number: 8000
+          - pathType: Prefix
+            path: /orders(.*)(.*)(.*)
+            backend:
+              service:
+                name: store-orders
+                port:
+                  number: 8001
+# NEVER FORGET
+# $ minikube addons enable ingress

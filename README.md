@@ -7,7 +7,7 @@ Kubernetes HPA (products and orders)
   - Orders has a client to return a product by id;
   - Both of then are deployed on Kubernetes using HPA - Horizontal Pod Autoscaler;
   - Ilustration:
-  
+  [PNG ilustration](files/architecture.png "Ilustration architecture")
 
 ## Steps
 
